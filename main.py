@@ -17,7 +17,7 @@ class User(db.Model):
 
 db.init_app(app)
 
-@app.route("/new", methods=['GET','POST'])
+@app.route("/", methods=['GET','POST'])
 def new():
     if request.method=="POST":
         email=request.form['email']
@@ -26,7 +26,7 @@ def new():
         user=User(name=name,email=email)
         db.session.add(user)
         db.session.commit()
-    return render_template("index.html")
+    return render_template("new.html")
 
 @app.route("/user/<username>")
 def users(username):
