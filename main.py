@@ -17,10 +17,6 @@ class User(db.Model):
 
 db.init_app(app)
 
-@app.route("/")
-def home():
-    return render_template("index.html")
-
 @app.route("/new", methods=['GET','POST'])
 def new():
     if request.method=="POST":
