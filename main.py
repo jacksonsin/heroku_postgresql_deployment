@@ -17,6 +17,10 @@ class User(db.Model):
 
 db.init_app(app)
 
+@app.route("/")
+def home():
+    return render_template("index.html")
+
 @app.route("/", methods=['GET','POST'])
 def new():
     if request.method=="POST":
@@ -26,7 +30,7 @@ def new():
         user=User(name=name,email=email)
         db.session.add(user)
         db.session.commit()
-    return render_template("index.html")
+    return users(user)
 
 @app.route("/user/<username>")
 def users(username):
