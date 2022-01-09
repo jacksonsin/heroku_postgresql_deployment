@@ -18,7 +18,7 @@ class People(db.Model):
         self.eid = eid
 
 @app.route('/')
-def addperson():
+def home():
     return render_template("index.html")
 
 @app.route("/personadd", methods=['POST'])
