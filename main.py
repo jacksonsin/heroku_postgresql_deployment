@@ -28,7 +28,6 @@ def personadd():
     entry = People(name, eid)
     db.session.add(entry)
     db.session.commit()
-
     return render_template("index.html")
 
 if __name__ == '__main__':
